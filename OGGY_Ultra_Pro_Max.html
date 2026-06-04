@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OGGY ULTRA PRO MAX</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:#fff;font-family:Arial,sans-serif;overflow:hidden}
+.bg{position:fixed;inset:0;background:radial-gradient(circle,rgba(255,0,0,.18),#000 70%);animation:pulse 3s infinite}
+@keyframes pulse{50%{filter:brightness(1.3)}}
+.lightning{position:fixed;inset:0;background:#fff;opacity:0;animation:flash 8s infinite}
+@keyframes flash{96%{opacity:.8}97%{opacity:0}98%{opacity:.4}99%{opacity:0}}
+.card{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:92%;max-width:900px;padding:25px;border-radius:25px;background:rgba(255,255,255,.08);backdrop-filter:blur(15px);text-align:center}
+.logo{font-size:52px;color:#ff3333;text-shadow:0 0 20px red}
+#main{display:none}
+#count{font-size:50px;color:#ff4444}
+#wa{display:none;text-decoration:none;background:#25D366;color:#fff;padding:16px 26px;border-radius:14px;font-size:24px;animation:bounce 1s infinite}
+@keyframes bounce{50%{transform:translateY(-8px)}}
+.small{color:#ccc;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="lightning"></div>
+
+<audio id="music" loop>
+<source src="https://files.catbox.moe/9t77g7.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card" id="intro">
+<h1>⚠ ACCESS DENIED ⚠</h1><br>
+<p>Unknown Visitor Detected...</p>
+<p>Scanning User...</p><br>
+<p>█░░░░░░░░░ 10%</p>
+<p>███░░░░░░░ 35%</p>
+<p>██████░░░░ 70%</p>
+<p>██████████ 100%</p>
+<br><p>Initializing Secure Connection...</p>
+</div>
+
+<div class="card" id="main">
+<div class="logo">☬『ＯᎶᎶᎽ』☬</div><br>
+<div class="small">
+TARGET FOUND<br>
+🟢 ONLINE<br>
+👑 LEGENDARY USER<br>
+🔐 ULTRA PRO MAX SECURITY<br><br>
+
+WELCOME TO THE OFFICIAL OGGY NETWORK<br><br>
+
+Only a few people have reached this page.<br>
+Many tried. Few succeeded.<br><br>
+
+🔥 FEAR NONE<br>
+⚔ RESPECT FEW<br>
+👑 RULE YOUR OWN WORLD<br><br>
+
+Wait 30 Seconds To Unlock Contact
+</div>
+
+<br><div id="count">30</div>
+
+<div id="done" style="display:none">
+<h2>✅ ACCESS GRANTED</h2><br>
+<a id="wa" href="https://wa.me/message/OLPOIKQWAVFUG1" target="_blank">💬 UNLOCK WHATSAPP</a>
+</div>
+
+<br><p>Tap once anywhere to allow music 🎵</p>
+</div>
+
+<script>
+let tapped=false;
+document.body.addEventListener('click',()=>{tapped=true;},{once:true});
+
+setTimeout(()=>{
+intro.style.display='none';
+main.style.display='block';
+
+let n=30;
+let timer=setInterval(()=>{
+n--;
+count.textContent=n;
+
+if(n===20 && tapped){
+document.getElementById('music').play().catch(()=>{});
+}
+
+if(n<=0){
+clearInterval(timer);
+count.style.display='none';
+done.style.display='block';
+wa.style.display='inline-block';
+}
+},1000);
+
+},5000);
+</script>
+</body>
+</html>
